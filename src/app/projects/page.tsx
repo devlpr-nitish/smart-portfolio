@@ -8,7 +8,6 @@ import { RiTailwindCssFill } from 'react-icons/ri';
 import { SiExpress, SiMongodb, SiTypescript } from 'react-icons/si';
 import { motion, useInView } from 'framer-motion';
 import { Bangers } from 'next/font/google';
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 const bangers = Bangers({
   weight: '400',
@@ -104,7 +103,7 @@ const Page = () => {
                 transition={{ duration: 0.5 }}
             >
                 {/* <h2 className={`${bangers.variable}text-gray-300 font-bold  text-5xl shadow-2xl mb-10 opacity-60`}>MY WORKS</h2> */}
-                <TextHoverEffect  text='WORKS'/>
+                {/* <TextHoverEffect  text='WORKS'/> */}
             </motion.div>
 
             {projects.map((project, idx) => {
