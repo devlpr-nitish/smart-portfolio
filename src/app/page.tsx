@@ -14,6 +14,7 @@ import { IconHub } from "@/components/IconHub";
 import { SkillsButton } from "@/components/SkillsButton";
 import { FaReact } from "react-icons/fa";
 import { MovingSkills } from "@/components/MovingSkills";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 
 export default function Home() {
   return (
@@ -60,12 +61,12 @@ export default function Home() {
 
       {/* projects section */}
       <div className="min-h-screen">
-        <div className="">
+        <div className="mb-20">
           <ProjectCoverText />
         </div>
 
 
-        <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {projectData.map((project: ProjectTypes, index: number) => (
             <ProjectCard key={index} project={project} />
           ))}
@@ -76,13 +77,13 @@ export default function Home() {
       {/* skills section */}
       <div className="relative min-h-screen mt-10 overflow-hidden">
 
-        <div className="relative z-10">
+        <div className="relative z-10 mb-20">
           <SkillsCoverText />
         </div>
 
         <div className="flex flex-row w-full gap-10 justify-between z-10">
           <div className="flex flex-col gap-6 w-1/2 p-6 justify-center items-center">
-            <div className="flex flex-wrap gap-1 border border-[rgba(255,255,255,0.10)] rounded-2xl p-6">
+            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
@@ -92,7 +93,7 @@ export default function Home() {
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
             </div>
 
-            <div className="flex flex-wrap gap-1 border border-[rgba(255,255,255,0.10)] rounded-2xl p-6">
+            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
@@ -102,7 +103,7 @@ export default function Home() {
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
             </div>
 
-            <div className="flex flex-wrap gap-1 border border-[rgba(255,255,255,0.10)] rounded-2xl p-6">
+            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
               <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
@@ -118,19 +119,23 @@ export default function Home() {
           </div>
 
 
-          <div className="absolute -bottom-80 inset-0 z-0 flex items-center justify-center pointer-events-none">
-            <div className="absolute -rotate-[8deg]">
+          <div className="absolute -bottom-96 top-28 inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
+            <div className="absolute -rotate-[90deg]">
               <MovingSkills />
             </div>
           </div>
 
         </div>
-      </div>
+      </div>  
 
 
-      <div className="min-h-screen">
-        <div className="">
+      <div className="min-h-screen relative z-10 mt-20">
+        <div className="mb-20">
           <ExperienceCoverText />
+        </div>
+
+        <div className="">
+          <ExperienceTimeline/>
         </div>
       </div>
 

@@ -28,12 +28,12 @@ function Footerdemo() {
   }, [isDarkMode])
 
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+    <footer className="relative border-t bg-[#050505] text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
 
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Nitish</h2>
+            <h2 className="mb-4 text-3xl text-[#045F77] font-bold tracking-tight">Nitish</h2>
             <p className="mb-6 text-muted-foreground">
               Let's connect and work on your ideas
             </p>
