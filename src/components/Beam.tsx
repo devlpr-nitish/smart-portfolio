@@ -39,7 +39,7 @@ export function Beam() {
 
     return (
         <div
-            className="relative flex min-h-[400px] w-full items-start justify-center overflow-hidden rounded-lg md:px-12 px-2 py-8  md:shadow-xl"
+            className="relative flex min-h-[400px] w-full items-start justify-center overflow-hidden rounded-lg md:px-24 px-1 py-8  md:shadow-xl"
             ref={containerRef}
         >
             <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10">

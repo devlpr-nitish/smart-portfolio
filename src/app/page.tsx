@@ -45,19 +45,19 @@ export default function Home() {
             </span>
           </span>
 
-          <div className="md:px-32 px-2">
+          <div className="md:px-32 px-1">
             <p className="md:text-md text-sm md:text-center text-[#d1d1d1]"> I build everything from sleek <b className="text-[#045F77]">user interfaces</b> to powerful backend systems. I ensure seamless <b className="text-[#045F77]">integration</b> between frontend and backend to deliver smooth, <b className="text-[#045F77]">scalable</b> web experiences.</p>
           </div>
 
-          <div className="flex justify-center md:gap-4 gap-2 items-center">
+          <div className="flex justify-center md:gap-8  gap-2 items-center px-2">
             <Link href="connect">
               <ConnectButton />
             </Link>
 
             <div className="text-[#d3d3d3]">
-              <span className="flex gap-2 justify-center cursor-pointer p-2 z-10">
+              <span className="flex gap-2 justify-center cursor-pointer px-2 z-10">
                 <Copy />
-                <span className="">devlprnitish@gmail.com</span>
+                <span className="text-md">devlprnitish@gmail.com</span>
               </span>
             </div>
           </div>
