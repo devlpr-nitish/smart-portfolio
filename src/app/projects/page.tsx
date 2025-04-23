@@ -9,7 +9,7 @@ import { ProjectTypes } from "@/lib/types";
 const Page = () => {
     return (
 
-        <div className="min-h-screen mb-20" >
+        <div className="min-h-screen mb-20 mt-20" >
             <div className="mb-20">
                 <ProjectCoverText />
             </div>

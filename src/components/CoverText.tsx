@@ -32,4 +32,14 @@ function ExperienceCoverText() {
   );
 }
 
-export {ProjectCoverText, SkillsCoverText, ExperienceCoverText};
+function BlogsCoverText() {
+  return (
+    <div>
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold max-w-7xl mx-auto text-center mt-2 relative z-20 py-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+        Logs From the<br />Dev <Cover>Desk</Cover>
+      </h1>
+    </div>
+  );
+}
+
+export {ProjectCoverText, SkillsCoverText, ExperienceCoverText, BlogsCoverText};

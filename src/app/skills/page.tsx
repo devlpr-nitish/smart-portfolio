@@ -7,7 +7,7 @@ import { FaReact } from 'react-icons/fa'
 
 const page = () => {
   return (
-    <div className="relative min-h-screen mt-20 overflow-hidden">
+    <div className="relative min-h-screen mt-20 mb-10 overflow-hidden">
 
       <div className="relative z-10 mb-20">
         <SkillsCoverText />

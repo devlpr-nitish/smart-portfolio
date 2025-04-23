@@ -11,3 +11,17 @@ export type ProjectTypes = {
   icons: IconDataTypes[];
   link:string;
 };
+
+export type Post = {
+  id: string;
+  title: string;
+  summary: string;
+  published: string;
+  url: string;
+  image: string;
+  tags?: string[];
+}
+export type Blog8Props = {
+  posts: Post[];
+};
+

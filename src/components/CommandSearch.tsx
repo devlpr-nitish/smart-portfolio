@@ -48,49 +48,49 @@ export function CommandSearch() {
           ⌘K
         </kbd>
       </button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Quick start">
-            <CommandItem>
-              <FolderPlus size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-              <span>New folder</span>
-              <CommandShortcut className="justify-center">⌘N</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <FileInput size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-              <span>Import document</span>
-              <CommandShortcut className="justify-center">⌘I</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <CircleFadingPlus
-                size={16}
-                strokeWidth={2}
-                className="opacity-60"
-                aria-hidden="true"
-              />
-              <span>Add block</span>
-              <CommandShortcut className="justify-center">⌘B</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Navigation">
-            <CommandItem>
-              <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-              <span>Go to dashboard</span>
-            </CommandItem>
-            <CommandItem>
-              <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-              <span>Go to apps</span>
-            </CommandItem>
-            <CommandItem>
-              <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-              <span>Go to connections</span>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Quick start">
+              <CommandItem>
+                <FolderPlus size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
+                <span>New folder</span>
+                <CommandShortcut className="justify-center">⌘N</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <FileInput size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
+                <span>Import document</span>
+                <CommandShortcut className="justify-center">⌘I</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <CircleFadingPlus
+                  size={16}
+                  strokeWidth={2}
+                  className="opacity-60"
+                  aria-hidden="true"
+                />
+                <span>Add block</span>
+                <CommandShortcut className="justify-center">⌘B</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Navigation">
+              <CommandItem>
+                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
+                <span>Go to dashboard</span>
+              </CommandItem>
+              <CommandItem>
+                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
+                <span>Go to apps</span>
+              </CommandItem>
+              <CommandItem>
+                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
+                <span>Go to connections</span>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { animate, motion } from "framer-motion"
+import { animate, motion } from "framer-motion";
 import React, { useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -39,7 +39,7 @@ export function AnimatedCard({ className, title, description, icons = [] }: Anim
       </div>
       {title && (
         <h3 className="text-lg font-semibold text-gray-200 dark:text-white py-2">
-          {title} 
+          {title}
         </h3>
       )}
       {description && (
@@ -54,24 +54,27 @@ export function AnimatedCard({ className, title, description, icons = [] }: Anim
 function AnimatedIcons({ icons }: { icons: AnimatedCardProps["icons"] }) {
   const scale = [1, 1.1, 1]
   const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"]
-  
-  const sequence = icons.map((_, index) => [
+
+  const sequence = icons?.map((_, index) => [
     `.circle-${index + 1}`,
     { scale, transform },
     { duration: 0.8 },
   ])
 
   useEffect(() => {
-    animate(sequence, {
-      repeat: Infinity,
-      repeatDelay: 1,
-    })
+    if (sequence) {
+      animate(sequence, {
+        //@ts-expect-error
+        repeat: Infinity,
+        repeatDelay: 1,
+      })
+    }
   }, [])
 
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
-        {icons.map((icon, index) => (
+        {icons?.map((icon, index) => (
           <Container
             key={index}
             className={cn(

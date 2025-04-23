@@ -1,8 +1,8 @@
 import { FaNodeJs, FaReact } from "react-icons/fa";
-import { ProjectTypes } from "./types";
+import { Post, ProjectTypes } from "./types";
 import { SiMongodb } from "react-icons/si";
 
-export const projectData: ProjectTypes = [
+const projectData: ProjectTypes[] = [
   {
     title: "Free Brain",
     description: "A MERN stack web app to organize links, codes, documents, and videos with AI-powered summarization.",
@@ -11,7 +11,7 @@ export const projectData: ProjectTypes = [
       { icon: <FaNodeJs className="h-5 w-5 text-green-600" />, size: "md" },
       { icon: <SiMongodb className="h-4 w-4 text-green-800" />, size: "sm" },
     ],
-    link:"https://webquery.onrender.com/convert"
+    link: "https://webquery.onrender.com/convert"
   },
   {
     title: "Share Thought",
@@ -21,7 +21,7 @@ export const projectData: ProjectTypes = [
       { icon: <FaNodeJs className="h-5 w-5 text-green-600" />, size: "md" },
       { icon: <SiMongodb className="h-4 w-4 text-green-800" />, size: "sm" },
     ],
-    link:"https://webquery.onrender.com/convert"
+    link: "https://webquery.onrender.com/convert"
   },
   {
     title: "Check-In System",
@@ -31,7 +31,7 @@ export const projectData: ProjectTypes = [
       { icon: <FaNodeJs className="h-5 w-5 text-green-600" />, size: "md" },
       { icon: <SiMongodb className="h-4 w-4 text-green-800" />, size: "sm" },
     ],
-    link:"https://webquery.onrender.com/convert"
+    link: "https://webquery.onrender.com/convert"
   },
   {
     title: "To-Do with AI",
@@ -41,10 +41,36 @@ export const projectData: ProjectTypes = [
       { icon: <FaNodeJs className="h-5 w-5 text-green-600" />, size: "md" },
       { icon: <SiMongodb className="h-4 w-4 text-green-800" />, size: "sm" },
     ],
-    link:"https://webquery.onrender.com/convert"
+    link: "https://webquery.onrender.com/convert"
   },
 ]
 
 
+const blogsData:Post [] = [
+  {
+    id: "post-1",
+    title:
+      "Building Modern UIs: A Deep Dive into Shadcn and React Components",
+    summary:
+      "Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques.",
+    published: "15 Feb 2024",
+    url: "https://www.geeksforgeeks.org/user/devlprnitish/",
+    image: "gfgprofile.png",
+    tags: ["Web Design", "UI Development"],
+  },
+  {
+    id: "post-2",
+    title: "Mastering Tailwind CSS: From Basics to Advanced Techniques",
+    summary:
+      "Discover how to leverage the full power of Tailwind CSS to create beautiful, responsive websites with clean and maintainable code.",
+    published: "22 Feb 2024",
+    url: "https://webquery.onrender.com/",
+    image: "webquery.png",
+    tags: ["Web Design", "CSS"],
+  },
+];
+
+
+export { projectData, blogsData }
 
 

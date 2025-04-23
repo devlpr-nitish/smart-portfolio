@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import { Home, Cpu, BookCheck ,FolderKanban} from "lucide-react"
-import { MenuBar } from "@/components/ui/glow-menu"
+import { MenuBar } from "@/components/ui/glow-menu";
 
 const menuItems = [
   {

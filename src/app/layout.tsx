@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Bangers, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
-import Link from "next/link";
 import { Footer } from "@/components/Fotter";
 import { CommandSearch } from "@/components/CommandSearch";
 
@@ -37,12 +36,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bangers.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/nitish.jpeg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className="bg-[#050505] relative">
 
         <div className="fixed top-4 left-72 z-50">
-          <Link href="/">
-            <img src="/nitish.jpeg" alt="Logo" className="h-10 w-auto rounded-full cursor-pointer" />
-          </Link>
+          <img src="/nitish.jpeg" alt="Logo" className="h-10 w-auto rounded-full" />
         </div>
 
         <div className="fixed z-20 top-4 right-72 ">
