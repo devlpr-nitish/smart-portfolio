@@ -49,7 +49,7 @@ export default function Home() {
             <p className="md:text-md text-sm md:text-center text-[#d1d1d1]"> I build everything from sleek <b className="text-[#045F77]">user interfaces</b> to powerful backend systems. I ensure seamless <b className="text-[#045F77]">integration</b> between frontend and backend to deliver smooth, <b className="text-[#045F77]">scalable</b> web experiences.</p>
           </div>
 
-          <div className="flex justify-center  gap-4 items-center">
+          <div className="flex justify-center md:gap-4 gap-2 items-center">
             <Link href="connect">
               <ConnectButton />
             </Link>
