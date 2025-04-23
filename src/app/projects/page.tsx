@@ -1,5 +1,4 @@
 "use client";
-
 import { ProjectCoverText } from "@/components/CoverText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectData } from "@/lib/data";

@@ -74,7 +74,7 @@ export function ExperienceTimeline() {
     ];
     return (
         <div className="min-h-screen w-full">
-            <div className="absolute top-0 left-0 w-full">
+            <div className="absolute md:top-6 md:left-0 w-full">
                 <Timeline data={data} />
             </div>
         </div>

@@ -1,3 +1,4 @@
+"use client";
 
 import { CustomStyleUnderlineText } from "@/components/UnderlineText";
 import { SparkText } from "../components/SparkText";
@@ -15,8 +16,13 @@ import { SkillsButton } from "@/components/SkillsButton";
 import { FaReact } from "react-icons/fa";
 import { MovingSkills } from "@/components/MovingSkills";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { motion } from "framer-motion";
+import { containerVariant, itemVariant } from "./skills/page";
 
 export default function Home() {
+
+ 
+
   return (
     <>
       {/* hero section */}
@@ -25,7 +31,7 @@ export default function Home() {
           <SquaresBg />
         </div>
 
-        <div className="relative z-10 h-full flex flex-col gap-10 px-20 py-40 items-center">
+        <div className="relative z-10 h-full flex flex-col md:gap-10 gap-4 md:px-20 md:py-40 px-6 py-40 md:items-center ">
           <span className="flex gap-2 items-end">
             <span>
               <p className="text-lg text-white">Hello, I'm</p>
@@ -33,14 +39,14 @@ export default function Home() {
             </span>
             <span className="flex gap-2 ">
               <span className="text-lg text-white">a</span>
-              <span className="text-lg text-white">
+              <span className="text-sm md:text-lg text-white">
                 <CustomStyleUnderlineText />
               </span>
             </span>
           </span>
 
-          <div className="px-32">
-            <p className="text-md text-center text-[#d1d1d1]"> I build everything from sleek <b className="text-[#045F77]">user interfaces</b> to powerful backend systems. I ensure seamless <b className="text-[#045F77]">integration</b> between frontend and backend to deliver smooth, <b className="text-[#045F77]">scalable</b> web experiences.</p>
+          <div className="md:px-32 px-2">
+            <p className="md:text-md text-sm md:text-center text-[#d1d1d1]"> I build everything from sleek <b className="text-[#045F77]">user interfaces</b> to powerful backend systems. I ensure seamless <b className="text-[#045F77]">integration</b> between frontend and backend to deliver smooth, <b className="text-[#045F77]">scalable</b> web experiences.</p>
           </div>
 
           <div className="flex justify-center  gap-4 items-center">
@@ -77,56 +83,48 @@ export default function Home() {
       {/* skills section */}
       <div className="relative min-h-screen mt-10 overflow-hidden">
 
-        <div className="relative z-10 mb-20">
+        <div className="relative z-10 mb-4 md:mb-20">
           <SkillsCoverText />
         </div>
 
-        <div className="flex flex-row w-full gap-10 justify-between z-10">
-          <div className="flex flex-col gap-6 w-1/2 p-6 justify-center items-center">
-            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-            </div>
+        <div className="flex flex-col-reverse md:flex-row w-full gap-10 justify-between z-10">
 
-            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-            </div>
-
-            <div className="flex flex-wrap gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl py-6 px-10">
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-              <SkillsButton icon={<FaReact className="text-blue-600 text-2xl" />} label={"ReactJs"} />
-            </div>
-
+          <div className="flex flex-col md:gap-6 gap-10 md:w-1/2 p-6 justify-center items-center">
+            {[1, 2, 3].map((_, groupIdx) => (
+              <motion.div
+                key={groupIdx}
+                variants={containerVariant}
+                initial="hidden"
+                animate="show"
+                className="flex flex-wrap justify-evenly md:justify-start gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl p-4 md:py-6 md:px-10 shadow-lg"
+              >
+                {[...Array(7)].map((_, idx) => (
+                  <motion.div key={idx} variants={itemVariant}>
+                    <SkillsButton
+                      icon={<FaReact className="text-blue-600 text-2xl" />}
+                      label={"ReactJs"}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ))}
           </div>
-          <div className="w-1/2 z-10">
+
+
+          <div className="md:w-1/2 z-10">
             <IconHub />
           </div>
-
-
-          <div className="absolute -bottom-96 top-28 inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
-            <div className="absolute -rotate-[90deg]">
-              <MovingSkills />
-            </div>
-          </div>
-
         </div>
-      </div>  
+
+
+        <div className="absolute hidden md:-bottom-96 md:top-28 inset-0 z-0 md:flex items-center justify-center pointer-events-none overflow-hidden">
+          <div className="absolute md:-rotate-[90deg]">
+            <MovingSkills />
+          </div>
+        </div>
+
+      </div>
+
 
 
       <div className="min-h-screen relative z-10 mt-20">
@@ -134,8 +132,8 @@ export default function Home() {
           <ExperienceCoverText />
         </div>
 
-        <div className="">
-          <ExperienceTimeline/>
+        <div className="flex flex-row justify-center items-center">
+          <ExperienceTimeline />
         </div>
       </div>
 

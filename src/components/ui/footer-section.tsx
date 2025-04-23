@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/tooltip"
 import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
 import { ConnectButton } from "../ConnectButton"
+import Link from "next/link"
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
-  const [isChatOpen, setIsChatOpen] = React.useState(false)
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
 
   React.useEffect(() => {
     if (isDarkMode) {
@@ -30,47 +30,45 @@ function Footerdemo() {
   return (
     <footer className="relative border-t bg-[#050505] text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid md:gap-16 gap-6 md:grid-cols-2 lg:grid-cols-4">
 
-          <div className="relative">
-            <h2 className="mb-4 text-3xl text-[#045F77] font-bold tracking-tight">Nitish</h2>
-            <p className="mb-6 text-muted-foreground">
-              Let's connect and work on your ideas
-            </p>
+          <div className="relative flex md:flex-col justify-center  ">
             <div className="">
-              <ConnectButton/>
+              <h2 className="mb-4 text-3xl text-[#045F77] font-bold tracking-tight">Nitish</h2>
+              <p className="mb-6 text-muted-foreground">
+                Let's connect and work on your ideas
+              </p>
             </div>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+            <div className="">
+              <ConnectButton />
+            </div>
+            <div className="absolute top-8 left-10  md:-right-4 md:top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-            <nav className="space-y-2 text-sm">
-              <a href="#" className="block transition-colors hover:text-primary">
+            <h3 className="md:mb-4 mb-2 text-lg font-semibold">Quick Links</h3>
+            <nav className="space-y-2 text-sm flex gap-4">
+              <Link href="/" className="block transition-colors hover:text-primary hover:underline">
                 Home
-              </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                About Us
-              </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Services
-              </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Products
-              </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Contact
-              </a>
+              </Link>
+              <Link href="projects" className="block transition-colors hover:text-primary hover:underline">
+                Works
+              </Link>
+              <Link href="skills" className="block transition-colors hover:text-primary hover:underline">
+                Skills
+              </Link>
+              <Link href="blogs" className="block transition-colors hover:text-primary hover:underline">
+                Blogs
+              </Link>
             </nav>
           </div>
 
           <div className="relative">
-            <h3 className="mb-4 text-lg font-semibold"></h3>
             <div className="mb-6 flex space-x-4">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
                       <Facebook className="h-4 w-4" />
                       <span className="sr-only">Facebook</span>
                     </Button>
@@ -117,20 +115,8 @@ function Footerdemo() {
                   <TooltipContent>
                     <p>Connect with us on LinkedIn</p>
                   </TooltipContent>
-                </Tooltip>  
+                </Tooltip>
               </TooltipProvider>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
-              <Switch
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-              />
-              <Moon className="h-4 w-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
-                Toggle dark mode
-              </Label>
             </div>
           </div>
         </div>

@@ -44,23 +44,23 @@ export default function RootLayout({
       </head>
       <body className="bg-[#050505] relative">
 
-        <div className="fixed top-4 left-72 z-50">
+        <div className="fixed md:top-4 md:left-72 top-4 left-4 z-50">
           <img src="/nitish.jpeg" alt="Logo" className="h-10 w-auto rounded-full" />
         </div>
 
-        <div className="fixed z-20 top-4 right-72 ">
+        <div className="fixed z-20 md:top-4 md:right-84 top-5 right-4">
           <CommandSearch />
         </div>
 
-        <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-[#050505]/90 backdrop-blur-md rounded-full shadow-lg border border-white/10">
+        <nav className="fixed md:bottom-4 md:right-84 bottom-5 right-4 transform -translate-x-1/2 z-50 bg-[#050505]/90 backdrop-blur-md rounded-full shadow-lg border border-white/10">
           <Navbar />
         </nav>
 
-        <main className="px-72">
+        <main className="md:px-72 px-4">
           {children}
         </main>
 
-        <footer className="px-72">
+        <footer className="md:px-72 px-4">
           <Footer />
         </footer>
       </body>

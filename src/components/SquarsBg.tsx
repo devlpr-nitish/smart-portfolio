@@ -6,7 +6,7 @@ import { Squares } from "@/components/ui/squares-background"
 export function SquaresBg() {
   return (
     <div className="space-y-8">
-      <div className="relative h-[800px] rounded-lg overflow-hidden bg-[#060606]">
+      <div className="relative h-[300px] md:h-[800px] rounded-lg overflow-hidden bg-[#060606]">
         <Squares 
           direction="diagonal"
           speed={0.5}

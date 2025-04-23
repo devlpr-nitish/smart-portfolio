@@ -67,7 +67,6 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
     const isDarkTheme = theme === "dark"
 
     return (
-      <>
         <motion.nav
           ref={ref}
           className={cn(
@@ -85,7 +84,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
               } to-transparent rounded-3xl z-0 pointer-events-none`}
             variants={navGlowVariants}
           />
-          <ul className="flex items-center gap-2 relative z-10 ">
+          <ul className="flex justify-between items-center gap-2 relative z-10 ">
             {items.map((item) => {
               const Icon = item.icon
               const isActive = item.label === activeItem
@@ -98,7 +97,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                   >
                     <Link href={item.href}>
                       <motion.div
-                        className="block rounded-xl overflow-visible group relative"
+                        className="block rounded-full overflow-visible group relative"
                         style={{ perspective: "600px" }}
                         whileHover="hover"
                         initial="initial"
@@ -171,8 +170,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
               )
             })}
           </ul>
-        </motion.nav >
-      </>
+        </motion.nav> 
     )
   },
 )
