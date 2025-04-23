@@ -52,7 +52,7 @@ export default function RootLayout({
           <CommandSearch />
         </div>
 
-        <nav className="fixed md:bottom-4 md:right-84 bottom-5 right-0 transform -translate-x-1/2 z-50 bg-[#050505]/90 backdrop-blur-md rounded-full shadow-lg border border-white/10">
+        <nav className="fixed md:bottom-4 md:right-84 bottom-5 -right-20 transform -translate-x-1/2 z-50 bg-[#050505]/90 backdrop-blur-md rounded-full shadow-lg border border-white/10">
           <Navbar />
         </nav>
 
