@@ -33,7 +33,7 @@ const CommandDialog = ({ children, ...props }: DialogProps) => {
     <Dialog {...props}>
       <DialogTitle></DialogTitle> {/* Temporary fix to silence console warning */}
       <DialogDescription></DialogDescription> {/* Temporary fix to silence console warning */}
-      <DialogContent className="overflow-hidden p-0 sm:max-w-lg [&>button:last-child]:hidden">
+      <DialogContent className="md:absolute px-6 md:top-10 md:right-50 overflow-hidden p-0 sm:max-w-lg [&>button:last-child]:hidden">
         <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]]:px-2 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-3 [&_[cmdk-item]]:py-2">
           {children}
         </Command>
@@ -46,7 +46,7 @@ const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-b border-input px-5" cmdk-input-wrapper="">
+  <div className="flex items-center border-b border-input px-5 bg-[#050505]/60" cmdk-input-wrapper="">
     <MagnifyingGlassIcon width={20} height={20} strokeWidth={2} className="me-3 text-muted-foreground/80" />
     <CommandPrimitive.Input
       ref={ref}

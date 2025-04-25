@@ -21,11 +21,11 @@ import { containerVariant, itemVariant } from "./skills/page";
 
 export default function Home() {
 
-  
+
   return (
     <>
       {/* hero section */}
-      <div className="relative w-full h-screen">
+      <div className="relative w-full h-screen no-scrollbar scroll-auto">
         <div className="absolute">
           <SquaresBg />
         </div>
@@ -49,9 +49,7 @@ export default function Home() {
           </div>
 
           <div className="flex md:flex-row flex-col-reverse justify-center md:gap-8 gap-6 items-center px-2">
-            <Link href="connect">
-              <ConnectButton />
-            </Link>
+            <ConnectButton />
 
             <div className="text-[#d3d3d3]">
               <span className="flex md:gap-2 justify-center items-center cursor-pointer px-2 z-10">

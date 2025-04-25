@@ -1,25 +1,22 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Facebook, Github, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
 import { ConnectButton } from "../ConnectButton"
 import Link from "next/link"
+import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si"
+import { useEffect, useState } from "react";
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark")
     } else {
@@ -68,52 +65,75 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
-                      <Facebook className="h-4 w-4" />
-                      <span className="sr-only">Facebook</span>
-                    </Button>
+                    <a target="_blank" href="https://github.com/devlpr-nitish">
+                      <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                        <Github className="h-4 w-4" />
+                        <span className="sr-only">Github</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow us on Facebook</p>
+                    <p>Connect me on Github</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
+                    <a target="_blank" href="https://x.com/devlprnitish">
+                      <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                        <Twitter className="h-4 w-4" />
+                        <span className="sr-only">Twitter</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow us on Twitter</p>
+                    <p>Connect me on Twitter</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Instagram className="h-4 w-4" />
-                      <span className="sr-only">Instagram</span>
-                    </Button>
+                    <a target="_blank" href="https://www.linkedin.com/in/devlpr-nitish/">
+                      <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                        <Linkedin className="h-4 w-4" />
+                        <span className="sr-only">LinkedIn</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow us on Instagram</p>
+                    <p>Connect me on LinkedIn</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Linkedin className="h-4 w-4" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
+                    <a target="_blank" href="https://leetcode.com/u/devlpr-nitish/">
+                      <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                        <SiLeetcode className="h-4 w-4" />
+                        <span className="sr-only">Leetcode</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Connect with us on LinkedIn</p>
+                    <p>View my Problem Solving</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a target="_blank" href="https://www.geeksforgeeks.org/user/devlprnitish/">
+                      <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                        <SiGeeksforgeeks className="h-4 w-4" />
+                        <span className="sr-only">Geeksforgeeks</span>
+                      </Button>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>View my Problem Solving</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

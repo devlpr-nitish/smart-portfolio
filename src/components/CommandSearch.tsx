@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowUpRight, CircleFadingPlus, FileInput, FolderPlus, Search } from "lucide-react";
-import * as React from "react";
-
+import { useEffect, useState } from "react";
+import { Home, Cpu, BookCheck, FolderKanban, Search, Github, Linkedin, TwitterIcon, Book } from "lucide-react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,14 +9,14 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
+import Link from "next/link";
+import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si";
 
 export function CommandSearch() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -48,49 +47,194 @@ export function CommandSearch() {
           ⌘K
         </kbd>
       </button>
-        <CommandDialog open={open} onOpenChange={setOpen}>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Quick start">
-              <CommandItem>
-                <FolderPlus size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-                <span>New folder</span>
-                <CommandShortcut className="justify-center">⌘N</CommandShortcut>
-              </CommandItem>
-              <CommandItem>
-                <FileInput size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-                <span>Import document</span>
-                <CommandShortcut className="justify-center">⌘I</CommandShortcut>
-              </CommandItem>
-              <CommandItem>
-                <CircleFadingPlus
-                  size={16}
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search..." />
+        <CommandList className="no-scrollbar bg-[#050505]/60">
+          <CommandEmpty>No results found.</CommandEmpty>
+
+          <CommandGroup heading="Navigation">
+            <Link href="/" onClick={() => setOpen(false)}>
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <Home
+                  size={24}
                   strokeWidth={2}
-                  className="opacity-60"
+                  className="opacity-60 group-hover:text-blue-500 transition-colors duration-300"
                   aria-hidden="true"
                 />
-                <span>Add block</span>
-                <CommandShortcut className="justify-center">⌘B</CommandShortcut>
+                <div>
+                  <span>Home</span>
+                  <p className="text-[12px] opacity-60">Welcome to my world</p>
+                </div>
               </CommandItem>
-            </CommandGroup>
-            <CommandSeparator />
-            <CommandGroup heading="Navigation">
-              <CommandItem>
-                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-                <span>Go to dashboard</span>
+            </Link>
+
+            <Link href="/projects" onClick={() => setOpen(false)}>
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <FolderKanban
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-purple-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Works</span>
+                  <p className="text-[12px] opacity-60">Things I have built</p>
+                </div>
               </CommandItem>
-              <CommandItem>
-                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-                <span>Go to apps</span>
+            </Link>
+
+            <Link href="/skills" onClick={() => setOpen(false)}>
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <Cpu
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-green-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Skills</span>
+                  <p className="text-[12px] opacity-60">Things that make me stand out</p>
+                </div>
               </CommandItem>
-              <CommandItem>
-                <ArrowUpRight size={16} strokeWidth={2} className="opacity-60" aria-hidden="true" />
-                <span>Go to connections</span>
+            </Link>
+
+            <Link href="/blogs" onClick={() => setOpen(false)}>
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <BookCheck
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-orange-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Blogs</span>
+                  <p className="text-[12px] opacity-60">Words of a Dev</p>
+                </div>
               </CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </CommandDialog>
+            </Link>
+          </CommandGroup>
+
+
+          <CommandGroup heading="General">
+            <a
+              href="https://drive.google.com/file/d/1Xvfw94tgxXju75hjyN05UPe9Rz-mddYo/view?usp=sharing"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <Book
+                  size={24}
+                  className="opacity-60 group-hover:text-red-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Resume</span>
+                  <p className="text-[12px] opacity-60">View my Resume</p>
+                </div>
+              </CommandItem>
+            </a>
+          </CommandGroup>
+
+
+
+          <CommandGroup heading="DSA">
+            <a
+              href="https://leetcode.com/u/devlpr-nitish/"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <SiLeetcode
+                  size={24}
+                  className="opacity-60 group-hover:text-yellow-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Leetcode</span>
+                  <p className="text-[12px] opacity-60">Problem solving</p>
+                </div>
+              </CommandItem>
+            </a>
+
+            <a
+              href="https://www.geeksforgeeks.org/user/devlprnitish/"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <SiGeeksforgeeks
+                  size={24}
+                  className="opacity-60 group-hover:text-green-600 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Geeksforgeeks</span>
+                  <p className="text-[12px] opacity-60">Problem solving</p>
+                </div>
+              </CommandItem>
+            </a>
+          </CommandGroup>
+
+          <CommandGroup heading="Social">
+            <a
+              href="https://github.com/devlpr-nitish"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <Github
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-gray-900 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>Github</span>
+                  <p className="text-[12px] opacity-60">Development Journey</p>
+                </div>
+              </CommandItem>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/devlpr-nitish/"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <Linkedin
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-blue-600 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>LinkedIn</span>
+                  <p className="text-[12px] opacity-60">Connect to talk</p>
+                </div>
+              </CommandItem>
+            </a>
+
+            <a
+              href="https://x.com/devlprnitish"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
+              <CommandItem className="group cursor-pointer mb-2 py-4">
+                <TwitterIcon
+                  size={24}
+                  strokeWidth={2}
+                  className="opacity-60 group-hover:text-blue-500 transition-colors duration-300"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span>X</span>
+                  <p className="text-[12px] opacity-60">Connect to talk</p>
+                </div>
+              </CommandItem>
+            </a>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
     </>
   );
 }
