@@ -1,24 +1,70 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowBigRight, ArrowBigRightDashIcon, ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si";
 import { Textarea } from "./ui/textarea";
-import { Separator } from "@radix-ui/react-separator";
+import emailjs from "emailjs-com";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export function ConnectButton() {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const sendEmail = () => {
+
+    setLoading(true);
+    if (!formData.email || !formData.message) {
+      toast("Email and Message are required!");
+      setLoading(false);
+      return;
+    }
+    if (!emailRegex.test(formData.email)) {
+      toast("Enter a valid Email!");
+      setLoading(false);
+      return;
+    }
+    const templateParams = {
+      email: formData.email,
+      message: formData.message
+    };
+
+    emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,        
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,     
+      templateParams,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!    
+    )
+      .then(() => {
+        toast("Message sent!");
+        setFormData({ email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("Email error:", error);
+        toast("faild to send message!");
+      }).finally(() =>
+        setLoading(false)
+      )
+  };
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -112,25 +158,30 @@ export function ConnectButton() {
             </div>
           </DrawerHeader>
 
-          <form className="w-full grid gap-4 p-4">
-            <div className="grid gap-2">
+          <form className="w-full flex flex-col gap-4 p-4">
+            <div className="w-full">
               <Input
                 required
-                id="email"
+                name="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your email"
               />
             </div>
-            <div className="grid gap-2">
+            <div className="w-full">
               <Textarea
                 required
-                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your message"
               />
             </div>
           </form>
-          <DrawerFooter>
-            <Button type="submit">Send Message</Button>
+
+          <DrawerFooter className="w-full">
+            <Button onClick={sendEmail} disabled={loading} className="cursor-pointer w-full h-10 text-center" type="submit">{loading ? "Sending..." : "Send Message"}</Button>
           </DrawerFooter>
         </div>
       </DrawerContent>
