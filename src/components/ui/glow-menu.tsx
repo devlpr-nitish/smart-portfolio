@@ -70,7 +70,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
         <motion.nav
           ref={ref}
           className={cn(
-            "p-2 rounded-full bg-gradient-to-b from-transparent via-transparent to-transparent backdrop-blur-lg shadow-lg relative overflow-hidden",
+            "md:p-2 px-2 py-1 w-[350px] md:w-[500px] rounded-full bg-gradient-to-b from-transparent via-transparent to-transparent backdrop-blur-lg shadow-lg relative overflow-hidden",
             className,
           )}
           initial="initial"
@@ -84,7 +84,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
               } to-transparent rounded-3xl z-0 pointer-events-none`}
             variants={navGlowVariants}
           />
-          <ul className="flex justify-between items-center gap-2 relative z-10 ">
+          <ul className="flex md:justify-between justify-evenly items-center md:gap-2 relative z-10 ">
             {items.map((item) => {
               const Icon = item.icon
               const isActive = item.label === activeItem
@@ -114,7 +114,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                         />
                         <motion.div
                           className={cn(
-                            "flex items-center gap-2 px-4 py-2 relative z-10 bg-transparent transition-colors rounded-xl",
+                            "flex items-center gap-2 md:px-4 py-2 relative z-10 bg-transparent transition-colors rounded-xl",
                             isActive
                               ? "text-foreground"
                               : "text-muted-foreground group-hover:text-foreground",
@@ -133,9 +133,9 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                               `group-hover:${item.iconColor}`,
                             )}
                           >
-                            <Icon className="h-5 w-5" />
+                            <Icon className="md:h-5 md:w-5 h-3 w-3" />
                           </span>
-                          <span>{item.label}</span>
+                          <span className="text-sm md:text-lg">{item.label}</span>
                         </motion.div>
                         <motion.div
                           className={cn(
@@ -159,9 +159,9 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                               `group-hover:${item.iconColor}`,
                             )}
                           >
-                            <Icon className="h-5 w-5" />
+                            <Icon className="md:h-5 md:w-5 h-3 w-3" />
                           </span>
-                          <span>{item.label}</span>
+                          <span className="text-sm md:text-lg">{item.label}</span>
                         </motion.div>
                       </motion.div>
                     </Link>
