@@ -28,6 +28,9 @@ const bangers = Bangers({
 export const metadata: Metadata = {
   title: "Nitish",
   description: "Showcasing projects, skills, and developer journey",
+  openGraph:{
+    images:"nitish.jpeg"
+  }
 };
 
 export default function RootLayout({
@@ -37,19 +40,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bangers.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="/nitish.jpeg" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
       <body className="bg-[#050505] relative">
 
         <div className="fixed md:top-4 md:left-72 top-4 left-4 z-50">
           <img src="/nitish.jpeg" alt="Logo" className="h-10 w-auto rounded-full" />
         </div>
 
-        <div className="fixed z-20 md:top-4 md:right-84 top-5 right-4">
+        <div className="fixed z-20 md:top-4 md:right-72 top-5 right-4">
           <CommandSearch />
         </div>
 

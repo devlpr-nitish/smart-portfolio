@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Github, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Github, Linkedin, Twitter } from "lucide-react"
 import { ConnectButton } from "../ConnectButton"
 import Link from "next/link"
 import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si"

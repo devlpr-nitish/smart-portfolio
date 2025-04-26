@@ -25,3 +25,17 @@ export type Blog8Props = {
   posts: Post[];
 };
 
+
+export type Project = {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+export type ProjectCardProps = {
+  project: Project;
+  // onEdit: (project: Project) => void;
+  // onDelete: (project: Project) => void;
+}
+

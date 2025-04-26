@@ -1,5 +1,5 @@
 import { FaNodeJs, FaReact } from "react-icons/fa";
-import { Post, ProjectTypes } from "./types";
+import { Post, Project, ProjectTypes } from "./types";
 import { SiMongodb } from "react-icons/si";
 
 const projectData: ProjectTypes[] = [
@@ -69,6 +69,65 @@ const blogsData:Post [] = [
     tags: ["Web Design", "CSS"],
   },
 ];
+
+export const projects:Project[] = [
+  {
+    id: "1",
+    title: "Portfolio Website",
+    description: "A personal portfolio to showcase my skills, projects, and blogs. Built using React and TailwindCSS.",
+    link: "https://your-portfolio.com",
+  },
+  {
+    id: "2",
+    title: "Admin Dashboard",
+    description: "An admin dashboard to manage projects, skills, and blogs dynamically.",
+    link: "https://admin-dashboard.com",
+  },
+  {
+    id: "3",
+    title: "Blog Platform",
+    description: "A full-stack MERN blog application where users can create, edit, and delete posts.",
+    link: "https://mern-blog-app.com",
+  },
+  {
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },
+  {
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },{
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },{
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },{
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },{
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },{
+    id: "4",
+    title: "E-commerce Store",
+    description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
+    link: "https://shop-now.com",
+  },
+];
+
 
 
 export { projectData, blogsData }
