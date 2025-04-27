@@ -14,7 +14,7 @@ interface Project {
   link: string;
 }
 
-export default function EditProject() {
+export default function AddProject() {
   const router = useRouter();
 
   // In real app you fetch by id from backend
