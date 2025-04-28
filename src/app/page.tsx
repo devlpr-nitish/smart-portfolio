@@ -18,9 +18,23 @@ import { MovingSkills } from "@/components/MovingSkills";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { motion } from "framer-motion";
 import Skill, { containerVariant, itemVariant } from "./skills/page";
+import { useRef } from "react";
+import { toast } from "sonner";
 
 export default function Home() {
+  const ref = useRef<HTMLSpanElement | null>(null);
 
+  const copyEmail = () => {
+    if (ref.current) {
+      navigator.clipboard.writeText(ref.current.textContent || "")
+        .then(() => {
+          toast("email copied");
+        }).catch((err) => {
+          toast("Failed to copy email");
+        })
+    }
+
+  }
 
   return (
     <>
@@ -52,10 +66,26 @@ export default function Home() {
             <ConnectButton />
 
             <div className="text-[#d3d3d3]">
-              <span className="flex md:gap-2 justify-center items-center cursor-pointer px-2 z-10">
-                <Copy className="p-1 md:p-0" />
-                <span className="text-sm md:text-md">devlprnitish@gmail.com</span>
-              </span>
+              <motion.span
+                onClick={copyEmail}
+                className="flex md:gap-2 justify-center items-center cursor-pointer px-2 z-10"
+                whileHover={{ scale: 1.05, color: "#FF6347" }} 
+              >
+                <motion.div
+                  whileTap={{ scale: 1.02 }} 
+                  className="p-1 md:p-0"
+                >
+                  <Copy />
+                </motion.div>
+
+                <motion.span
+                  ref={ref}
+                  className="text-sm md:text-md transition-colors duration-100"
+                  transition={{ type: "spring", stiffness: 300 }} 
+                >
+                  devlprnitish@gmail.com
+                </motion.span>
+              </motion.span>
             </div>
           </div>
           <Beam />
@@ -78,50 +108,7 @@ export default function Home() {
       </div>
 
       {/* skills section */}
-      {/* <div className="relative min-h-screen mt-10 overflow-hidden">
-
-        <div className="relative z-10 mb-4 md:mb-20">
-          <SkillsCoverText />
-        </div>
-
-        <div className="flex flex-col-reverse md:flex-row w-full gap-10 justify-between z-10">
-
-          <div className="flex flex-col md:gap-6 gap-10 md:w-1/2 p-6 justify-center items-center">
-            {[1, 2, 3].map((_, groupIdx) => (
-              <motion.div
-                key={groupIdx}
-                variants={containerVariant}
-                initial="hidden"
-                animate="show"
-                className="flex flex-wrap justify-evenly md:justify-start gap-2 border border-[rgba(255,255,255,0.10)] rounded-2xl p-4 md:py-6 md:px-10 shadow-lg"
-              >
-                {[...Array(7)].map((_, idx) => (
-                  <motion.div key={idx} variants={itemVariant}>
-                    <SkillsButton
-                      icon={<FaReact className="text-blue-600 text-2xl" />}
-                      label={"ReactJs"}
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            ))}
-          </div>
-
-
-          <div className="md:w-1/2 z-10">
-            <IconHub />
-          </div>
-        </div>
-
-
-        <div className="absolute hidden md:-bottom-96 md:top-28 inset-0 z-0 md:flex items-center justify-center pointer-events-none overflow-hidden">
-          <div className="absolute md:-rotate-[90deg]">
-            <MovingSkills />
-          </div>
-        </div>
-
-      </div> */}
-      <Skill/>
+      <Skill />
 
 
 
