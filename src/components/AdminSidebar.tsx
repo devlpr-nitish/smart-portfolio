@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import {  LogOut, Cpu, BookCheck, FolderKanban } from "lucide-react";
+import { LogOut, Cpu, BookCheck, FolderKanban } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function AdminSidebar({ children }: { children: React.ReactNode }) {
+    const pathname = usePathname();
+    const router = useRouter();
 
     const links = [
         {
@@ -28,18 +30,14 @@ export function AdminSidebar({ children }: { children: React.ReactNode }) {
             icon: (
                 <BookCheck className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
-        },
-        {
-            label: "Logout",
-            href: "/admin/logout",
-            icon: ( 
-                <LogOut className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-            ),
-        },
+        }
     ];
-    const [open, setOpen] = useState(false);
 
-    const pathname = usePathname();
+    const logOut = ()  =>{
+        localStorage.removeItem("token");
+        router.replace("/admin/login");
+    }
+
     return (
         <div
             className={cn(
@@ -63,9 +61,9 @@ export function AdminSidebar({ children }: { children: React.ReactNode }) {
                         {links.map((link, index) => (
                             <Link key={index} href={link.href} className="z-10">
                                 <div className={cn(
-                                        "flex gap-2 rounded-md items-center px-4 py-4 hover:bg-gray-600/30",
-                                        pathname === link.href ? "bg-gray-600/20" : ""
-                                    )}>
+                                    "flex gap-2 rounded-md items-center px-4 py-4 hover:bg-gray-600/30",
+                                    pathname === link.href ? "bg-gray-600/20" : ""
+                                )}>
                                     <span>
                                         {link.icon}
                                     </span>
@@ -75,7 +73,21 @@ export function AdminSidebar({ children }: { children: React.ReactNode }) {
                                     </span>
                                 </div>
                             </Link>
+
                         ))}
+
+                        <div onClick={logOut} className={cn(
+                            "flex gap-2 rounded-md items-center px-4 py-4 hover:bg-gray-600/30 cursor-pointer z-10"
+                        )}>
+
+                            <span>
+                                <LogOut className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+                            </span>
+
+                            <span>
+                                Logout
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

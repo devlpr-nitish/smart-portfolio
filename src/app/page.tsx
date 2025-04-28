@@ -17,7 +17,7 @@ import { FaReact } from "react-icons/fa";
 import { MovingSkills } from "@/components/MovingSkills";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { motion } from "framer-motion";
-import { containerVariant, itemVariant } from "./skills/page";
+import Skill, { containerVariant, itemVariant } from "./skills/page";
 
 export default function Home() {
 
@@ -78,7 +78,7 @@ export default function Home() {
       </div>
 
       {/* skills section */}
-      <div className="relative min-h-screen mt-10 overflow-hidden">
+      {/* <div className="relative min-h-screen mt-10 overflow-hidden">
 
         <div className="relative z-10 mb-4 md:mb-20">
           <SkillsCoverText />
@@ -120,7 +120,8 @@ export default function Home() {
           </div>
         </div>
 
-      </div>
+      </div> */}
+      <Skill/>
 
 
 

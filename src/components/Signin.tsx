@@ -35,6 +35,7 @@ const Signin = () => {
 
             const data = await response.json(); // Assuming the API returns a JWT token in response
 
+            toast('Admin Login Successfully');
             // Store token in localStorage
             localStorage.setItem('token', data.token);
 
@@ -65,7 +66,7 @@ const Signin = () => {
                 <div className="space-y-2">
                     <Input
                         id="password"
-                        type="password"
+                        type="text"
                         placeholder="admin password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

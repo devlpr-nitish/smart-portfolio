@@ -1,6 +1,8 @@
 import { FaNodeJs, FaReact } from "react-icons/fa";
 import { Post, Project, ProjectTypes } from "./types";
 import { SiMongodb } from "react-icons/si";
+import { BookCheck, Cpu, FolderKanban } from "lucide-react";
+import { Option } from "@/components/ui/multiselect";
 
 const projectData: ProjectTypes[] = [
   {
@@ -46,7 +48,7 @@ const projectData: ProjectTypes[] = [
 ]
 
 
-const blogsData:Post [] = [
+const blogsData: Post[] = [
   {
     id: "post-1",
     title:
@@ -70,7 +72,7 @@ const blogsData:Post [] = [
   },
 ];
 
-export const projects:Project[] = [
+export const projects: Project[] = [
   {
     id: "1",
     title: "Portfolio Website",
@@ -100,27 +102,27 @@ export const projects:Project[] = [
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
     link: "https://shop-now.com",
-  },{
+  }, {
     id: "4",
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
     link: "https://shop-now.com",
-  },{
+  }, {
     id: "4",
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
     link: "https://shop-now.com",
-  },{
+  }, {
     id: "4",
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
     link: "https://shop-now.com",
-  },{
+  }, {
     id: "4",
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
     link: "https://shop-now.com",
-  },{
+  }, {
     id: "4",
     title: "E-commerce Store",
     description: "A simple e-commerce web app with shopping cart, payment gateway, and order management.",
@@ -128,6 +130,75 @@ export const projects:Project[] = [
   },
 ];
 
+export 
+const frameworks: Option[] = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+    disable: true,
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+  {
+    value: "angular",
+    label: "Angular",
+  },
+  {
+    value: "vue",
+    label: "Vue.js",
+  },
+  {
+    value: "react",
+    label: "React",
+  },
+  {
+    value: "ember",
+    label: "Ember.js",
+  },
+  {
+    value: "gatsby",
+    label: "Gatsby",
+  },
+  {
+    value: "eleventy",
+    label: "Eleventy",
+    disable: true,
+  },
+  {
+    value: "solid",
+    label: "SolidJS",
+  },
+  {
+    value: "preact",
+    label: "Preact",
+  },
+  {
+    value: "qwik",
+    label: "Qwik",
+  },
+  {
+    value: "alpine",
+    label: "Alpine.js",
+  },
+  {
+    value: "lit",
+    label: "Lit",
+  },
+];
 
 
 export { projectData, blogsData }

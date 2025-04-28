@@ -1,12 +1,10 @@
-// app/api/login/route.ts
 
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { connectToMongoDB } from '@/lib/mongodb';
+import { userModel } from '@/schema/user.schema';
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
@@ -19,11 +17,9 @@ export async function POST(request: NextRequest) {
   try {
     const body: LoginRequestBody = await request.json();
     const { email, password } = body;
+    await connectToMongoDB();
 
-    // Find the user by email
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
+    const user = await userModel.findOne({email});
 
     if (!user) {
       return NextResponse.json(
@@ -32,7 +28,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check password
+    // @ts-ignore
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
@@ -42,10 +38,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate JWT token
-    const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, {
-      expiresIn: '1h',
-    });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      JWT_SECRET,
+      { expiresIn: '1h' }
+    );
 
     return NextResponse.json(
       { message: 'Login successful', token },
