@@ -117,7 +117,7 @@ export function CommandSearch() {
 
           <CommandGroup heading="General">
             <a
-              href="https://drive.google.com/file/d/1Xvfw94tgxXju75hjyN05UPe9Rz-mddYo/view?usp=sharing"
+              href="https://drive.google.com/file/d/1A0RG78ppWEOz0q8x6E_AO7ZxocIs_Cer/view?usp=sharing"
               target="_blank"
               onClick={() => setOpen(false)}
             >
