@@ -139,7 +139,7 @@ export function CommandSearch() {
 
           <CommandGroup heading="DSA">
             <a
-              href="https://leetcode.com/u/devlpr-nitish/"
+              href="https://leetcode.com/u/devlprnitish/"
               target="_blank"
               onClick={() => setOpen(false)}
             >
